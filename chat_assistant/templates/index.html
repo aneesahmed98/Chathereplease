@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLite Chat Assistant</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: #800080; /* Purple */
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #4CAF50; /* Green */
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #4CAF50; /* Green */
+            border-radius: 6px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            background-color: #333;
+            color: white;
+        }
+        input[type="text"]:focus {
+            border-color: #fff;
+            outline: none;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .response-container {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            padding: 15px;
+            background-color: #222;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .response-container h3 {
+            margin: 10px 0;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SQLite Chat Assistant</h1>
+        <form method="post">
+            <input type="text" name="query" placeholder="Ask something..." required>
+            <button type="submit">Ask</button>
+        </form>
+        
+        {% if user_input %}
+            <div class="response-container">
+                <h3>You: {{ user_input }}</h3>
+                <h3>Bot: {{ response }}</h3>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
